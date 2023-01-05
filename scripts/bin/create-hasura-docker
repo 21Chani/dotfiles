@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl https://raw.githubusercontent.com/hasura/graphql-engine/stable/install-manifests/docker-compose/docker-compose.yaml -o docker-compose.yml
