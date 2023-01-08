@@ -2,14 +2,14 @@
 
 if command -v brew &> /dev/null
 then 
-	if ! command -v postgresql &> /dev/null
+	if ! command -v psql &> /dev/null
 	then
 		echo "installing postgresql cli..."
 		brew install postgresql
 	else
 		echo "psql cli already installed"
 	fi
-	if ! command -v redis &> /dev/null
+	if ! command -v redis-cli &> /dev/null
 	then
 		echo "installing redis cli..."
 		brew install redis
