@@ -1,4 +1,10 @@
 #!/bin/bash
 
+if command -v brew &> /dev/null
+then
+    echo "brew it is already installed"
+    exit
+fi
+
 echo "Initializing brew install"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

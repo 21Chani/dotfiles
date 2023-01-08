@@ -16,5 +16,8 @@ then
 	else
 		echo "redis cli already installed"
 	fi
-	
+else
+	echo "brew is not installed. \nskipping checks for: \n[postgresql, redis-cli]"
+	echo "use: zsh install-brew"
+	exit
 fi
