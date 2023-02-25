@@ -1,0 +1,88 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Material Theme Ocean High Contrast",
+  "editor.fontFamily": "jetbrains mono",
+  "editor.fontSize": 12,
+  "editor.lineHeight": 24,
+  "editor.fontWeight": "bold",
+  "editor.fontLigatures": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
+  "workbench.colorCustomizations": {
+    "[Material Theme Palenight High Contrast]": {
+      "activityBarBadge.background": "#64FFDA",
+      "activityBar.activeBorder": "#64FFDA",
+      "list.activeSelectionForeground": "#64FFDA",
+      "list.inactiveSelectionForeground": "#64FFDA",
+      "list.highlightForeground": "#64FFDA",
+      "scrollbarSlider.activeBackground": "#64FFDA50",
+      "editorSuggestWidget.highlightForeground": "#64FFDA",
+      "textLink.foreground": "#64FFDA",
+      "progressBar.background": "#64FFDA",
+      "pickerGroup.foreground": "#64FFDA",
+      "tab.activeBorder": "#64FFDA",
+      "notificationLink.foreground": "#64FFDA",
+      "editorWidget.resizeBorder": "#64FFDA",
+      "editorWidget.border": "#64FFDA",
+      "settings.modifiedItemIndicator": "#64FFDA",
+      "settings.headerForeground": "#64FFDA",
+      "panelTitle.activeBorder": "#64FFDA",
+      "breadcrumb.activeSelectionForeground": "#64FFDA",
+      "menu.selectionForeground": "#64FFDA",
+      "menubar.selectionForeground": "#64FFDA",
+      "editor.findMatchBorder": "#64FFDA",
+      "selection.background": "#64FFDA40",
+      "statusBarItem.remoteBackground": "#64FFDA"
+    }
+  },
+  "materialTheme.accent": "Bright Teal",
+  "material-icon-theme.opacity": 1,
+  "material-icon-theme.hidesExplorerArrows": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "git.confirmSync": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "prettier.ignorePath": ".prettierignore",
+  "explorer.compactFolders": false,
+  "volar.autoCompleteRefs": true,
+  "volar.completion.preferredTagNameCase": "auto-kebab",
+  "volar.completion.normalizeComponentImportName": true,
+  "volar.completion.preferredAttrNameCase": "auto-camel",
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "C_Cpp.formatting": "vcFormat",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "newLine",
+  "C_Cpp.vcFormat.indent.preserveComments": true,
+  "C_Cpp.vcFormat.indent.preserveWithinParentheses": true,
+  "C_Cpp.vcFormat.indent.caseContentsWhenBlock": true,
+  "C_Cpp.vcFormat.indent.caseLabels": true,
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "newLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "newLine",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+
+  "files.associations": {
+    "*.css": "css",
+    "css": "css"
+  },
+  "cmake.configureOnOpen": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.vueIndentScriptAndStyle": true,
+  "editor.minimap.autohide": true
+}
