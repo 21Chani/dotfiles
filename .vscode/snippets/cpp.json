@@ -1,0 +1,18 @@
+{
+  "coutl": {
+    "prefix": "coutl",
+    "body": "std::cout << $1 << std::endl;"
+  },
+  "cout": {
+    "prefix": "cout",
+    "body": "std::cout << $1 ;"
+  },
+  "iostream": {
+    "body": "#include <iostream>\n",
+    "prefix": "im"
+  },
+  "std::string": {
+    "body": "std::string ",
+    "prefix": "sg"
+  }
+}
