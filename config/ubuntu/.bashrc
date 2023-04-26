@@ -1,4 +1,43 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+
+# ------------------------------ FUNCTIONS ------------------------------
+
+mkcdir () {
+  mkdir "$1" &&
+     cd "$1"
+}
+
+# ------------------------ ENVIRONMENT VARIABLES ------------------------
+
+# --- USER UTILITIES 
+export GITUSER="21Chani"
+export REPOS="$HOME/repos"
+export GHREPOS="$REPOS/github.com"
+export USERREPOS="$GHREPOS/$GITUSER"
+export DOTFILES="$USERREPOS/dotfiles"
+export SCRIPTS="$DOTFILES/scripts/bin"
+
+# --- JAVA
+export JAVA_HOME="$HOME/.jdks/temurin-17.0.6"
+
+# --- GO ENV
+export GOROOT="/usr/local/go"
+export GOPRIVATE="$GHREPOS/$GITUSER/*"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$HOME/.local/bin"
+
+# --- PATH
+export PATH="$PATH:$SCRIPTS"
+export PATH=$PATH:/home/chani/.spicetify:$JAVA_HOME/bin:/usr/local/go/bin
+. "$HOME/.cargo/env"
+
+# ------------------------------- CD PATH -------------------------------
+
+export CDPATH=".:$USERREPOS:$GHREPOS:$REPOS:/media/$USER:$HOME"
+
+# -------------------------- OS DEFAULT CONFIG --------------------------
+
+PROMPT_DIRTRIM=1
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -56,7 +95,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -122,22 +161,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH=$PATH:/home/chani/.spicetify
-. "$HOME/.cargo/env"
 
-mkcdir () {
-  mkdir "$1" &&
-     cd "$1"
-}
-
-export GITUSER="21Chani"
-export REPOS="$HOME/repos"
-export GHREPOS="$REPOS/github"
-export USERREPOS="$GHREPOS/$GITUSER"
-export DOTFILES="$USERREPOS/dotfiles"
-export SCRIPTS="$DOTFILES/scripts/bin"
-
-export PATH="$PATH:$SCRIPTS"
-
-PROMPT_DIRTRIM=1
 
