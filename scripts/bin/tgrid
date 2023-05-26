@@ -1,0 +1,25 @@
+#/bin/bash!
+
+if [ -z "$1" ]
+    then
+    echo "A name for grid should be provided"
+    exit
+fi
+
+if tmux has-session -t $1 2>/dev/null
+    then
+    echo "session already exists."
+    exit
+fi
+
+tmux new-session -s $1 -d
+
+tmux split-window -h
+
+tmux select-pane -t 0
+tmux split-window -v
+
+tmux select-pane -t 2
+tmux split-window -v
+
+tmux attach -t $1
