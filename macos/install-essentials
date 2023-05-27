@@ -21,3 +21,5 @@ else
 	echo "use: zsh install-brew"
 	exit
 fi
+
+cp $DOTFILES/wallpapers/astronaut_wallpaper_macos.jpg ~/Documents/Wallpapers/astronaut_wallpaper.jpg
