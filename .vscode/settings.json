@@ -1,6 +1,6 @@
 {
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Material Theme Ocean High Contrast",
+  "workbench.iconTheme": "sweet-vscode-icons",
+  "workbench.colorTheme": "Sweet vscode",
   "editor.fontFamily": "jetbrains mono",
   "editor.fontSize": 12,
   "editor.lineHeight": 24,
