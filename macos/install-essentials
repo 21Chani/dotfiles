@@ -23,3 +23,4 @@ else
 fi
 
 cp $DOTFILES/wallpapers/astronaut_wallpaper_macos.jpg ~/Documents/Wallpapers/astronaut_wallpaper.jpg
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/chani/Documents/Wallpapers/astronaut_wallpaper.jpg"'
