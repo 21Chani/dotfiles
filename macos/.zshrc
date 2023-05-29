@@ -14,10 +14,6 @@ mkcdir () {
 	   cd "$1"
 }
 
-#PROMPT='%B%K{green}%~%b%f%k%F{cyan}%(1j.[%j].)'$'\n''%F{yellow}%n%f %F{magenta}%(!.#.$)%f '
-
-#PROMPT="%B%K{green} %n%f "@" %~ %B%K{red} ${vcs_info_msg_0_} %B%K{reset}"
-
 autoload -Uz vcs_info
 precmd() {
   vcs_info
