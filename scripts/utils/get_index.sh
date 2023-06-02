@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 get_word_index(){ 
     local to_find="$1"
