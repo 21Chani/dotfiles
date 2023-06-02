@@ -1,4 +1,4 @@
-#/bin/bash!
+#!/bin/bash!
 
 source $DOTFILES/scripts/utils/get_index.sh
 source $DOTFILES/scripts/utils/find_dir.sh
@@ -74,19 +74,4 @@ for index in ${!window_names[@]}; do
     fi
 done
 
-
 tmux a -t $1
-
-# for name in ${windows_names[@]}; do
-#     output=$(tmux list-windows -t "$1")
-#     if [[ "$output" == *"$name"* ]]; then
-#         tmux select-window -t "$name"
-#         make_panels
-#     else
-#         tmux new-window -n "$name" -c $CDPATH/21Chani
-#         make_panels
-#     fi
-# done
-
-
-# tmux attach -t $1
