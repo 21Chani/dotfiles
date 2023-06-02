@@ -11,5 +11,5 @@ find_dir()  {
             return
         fi
     done
-    echo ""
+    echo $(pwd)
 }
