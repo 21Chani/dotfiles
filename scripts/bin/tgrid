@@ -1,25 +1,92 @@
 #/bin/bash!
 
-if [ -z "$1" ]
-    then
+source $DOTFILES/scripts/utils/get_index.sh
+source $DOTFILES/scripts/utils/find_dir.sh
+
+if [ -z "$1" ]; then
     echo "A name for grid should be provided"
     exit
 fi
 
-if tmux has-session -t $1 2>/dev/null
-    then
+if tmux has-session -t $1 2>/dev/null; then
     echo "session already exists."
     exit
 fi
 
-tmux new-session -s $1 -d
+args=("$@")
+length=${#args[@]}
 
-tmux split-window -h
+window_names=()
+window_paths=()
+window_arg_pos=$(get_word_index "-w" ${args[@]})
+windows=(${args[@]:((window_arg_pos + 1)):$length})
 
-tmux select-pane -t 0
-tmux split-window -v
+if [[ $window_arg_pos != -1 ]]; then
+    if [[ $((window_arg_pos + 1)) == $length ]]; then
+        echo "at least one window should be passed"
+    else 
+        for index in ${!windows[@]}; do
+            prev=${windows[index - 1]}
+            payload=${windows[index]}
+            if [[ $payload == -* ]]; then
+                continue
+            fi
+            if [[ $prev == "-c" ]]; then
+                window_paths+=("$payload")
+                continue
+            fi
+            window_names+=("$payload")
+        done
+    fi
+fi
 
-tmux select-pane -t 2
-tmux split-window -v
+echo ${window_names[@]}
+echo ${window_paths[@]}
 
-tmux attach -t $1
+if [[ ${#window_names[@]} != 0 ]]; then
+    tmux new-session -s $1 -n ${window_names[0]} -c "${window_names[0]}" -d 
+else
+    tmux new-session -s $1 -c "${window_names[0]}" -d 
+fi
+
+make_panels(){
+    dir=$(find_dir $1)
+    tmux split-window -h 
+
+    tmux select-pane -t 0
+    tmux split-window -v 
+
+    tmux select-pane -t 2
+    tmux split-window -v 
+}
+
+for index in ${!window_names[@]}; do
+    output=$(tmux list-windows -t "$1")
+    name=${window_names[$index]}
+    dir=${window_paths[$index]}
+
+    if [[ "$output" == *"$name"* ]]; then
+        tmux select-window -t "$name"
+        make_panels $dir
+    else
+        tmux new-window -n "$name" -c $dir
+        make_panels $dir
+    fi
+done
+
+
+tmux a -t $1
+
+# for name in ${windows_names[@]}; do
+#     output=$(tmux list-windows -t "$1")
+#     if [[ "$output" == *"$name"* ]]; then
+#         tmux select-window -t "$name"
+#         make_panels
+#     else
+#         tmux new-window -n "$name" -c $CDPATH/21Chani
+#         make_panels
+#     fi
+# done
+
+
+# tmux attach -t $1
