@@ -64,5 +64,6 @@ export PS1=\
 # -------------------------- OS DEFAULT CONFIG --------------------------
 
 source $DOTFILES/ubuntu/default_config.sh
+source $DOTFILES/ubuntu/.bash_functions
 source $DOTFILES/ubuntu/.bash_aliases
 
