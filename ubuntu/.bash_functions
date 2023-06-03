@@ -12,6 +12,6 @@ mkcdir() {
 }
 
 rbash() {
-    cp $DOTFILES/ubuntu/.bashrc ~/.bashrc
+    cp $DOTFILES/ubuntu/.bashrc ~/.bashrc &&
     source ~/.bashrc
 }
