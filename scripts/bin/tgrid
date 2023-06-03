@@ -1,4 +1,4 @@
-#!/bin/bash!
+#!/bin/bash
 
 source $DOTFILES/scripts/utils/get_index.sh
 source $DOTFILES/scripts/utils/find_dir.sh
