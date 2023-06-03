@@ -42,20 +42,20 @@ if [[ $window_arg_pos != -1 ]]; then
 fi
 
 if [[ ${#window_names[@]} != 0 ]]; then
-    tmux new-session -s $1 -n ${window_names[0]} -c "${window_names[0]}" -d 
+    tmux new-session -s $1 -n $window_names[0]} -c $(find_dir ${window_paths[0]}) -d 
 else
-    tmux new-session -s $1 -c "${window_names[0]}" -d 
+    tmux new-session -s $1 -c $(find_dir ${window_paths[0]}) -d 
 fi
 
 make_panels(){
     dir=$(find_dir $1)
-    tmux split-window -h 
+    tmux split-window -h -c $dir
 
     tmux select-pane -t 0
-    tmux split-window -v 
+    tmux split-window -v -c $dir
 
     tmux select-pane -t 2
-    tmux split-window -v 
+    tmux split-window -v -c $dir
 }
 
 for index in ${!window_names[@]}; do
@@ -67,7 +67,7 @@ for index in ${!window_names[@]}; do
         tmux select-window -t "$name"
         make_panels $dir
     else
-        tmux new-window -n "$name" -c $dir
+        tmux new-window -n "$name" -c $(find_dir $dir)
         make_panels $dir
     fi
 done
