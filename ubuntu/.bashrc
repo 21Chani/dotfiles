@@ -1,12 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-# ------------------------------ FUNCTIONS ------------------------------
-
-mkcdir () {
-  mkdir "$1" &&
-     cd "$1"
-}
-
 # ------------------------ ENVIRONMENT VARIABLES ------------------------
 
 # --- USER UTILITIES 
