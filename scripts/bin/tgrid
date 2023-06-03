@@ -21,27 +21,25 @@ window_paths=()
 window_arg_pos=$(get_word_index "-w" ${args[@]})
 windows=(${args[@]:((window_arg_pos + 1)):$length})
 
-if [[ $window_arg_pos != -1 ]]; then
-    if [[ $((window_arg_pos + 1)) == $length ]]; then
-        echo "at least one window should be passed"
-    else 
-        for index in ${!windows[@]}; do
-            prev=${windows[index - 1]}
-            payload=${windows[index]}
-            if [[ $payload == -* ]]; then
-                continue
-            fi
-            if [[ $prev == "-c" ]]; then
-                window_paths+=("$payload")
-                continue
-            fi
-            window_names+=("$payload")
-        done
-    fi
+if [[ $((window_arg_pos + 1)) == $length ]]; then
+    echo "at least one window should be passed"
+    exit
 fi
 
-echo ${window_names[@]}
-echo ${window_paths[@]}
+if [[ $window_arg_pos != -1 ]]; then
+    for index in ${!windows[@]}; do
+        prev=${windows[index - 1]}
+        payload=${windows[index]}
+        if [[ $payload == -* ]]; then
+            continue
+        fi
+        if [[ $prev == "-c" ]]; then
+            window_paths+=("$payload")
+            continue
+        fi
+        window_names+=("$payload")
+    done
+fi
 
 if [[ ${#window_names[@]} != 0 ]]; then
     tmux new-session -s $1 -n ${window_names[0]} -c "${window_names[0]}" -d 
