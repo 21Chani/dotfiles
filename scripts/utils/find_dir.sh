@@ -13,3 +13,15 @@ find_dir()  {
     done
     echo $(pwd)
 }
+
+cd_path_ls() {
+    cdpath_dirs=()
+    IFS=':' read -ra cdpath_dirs <<< "$CDPATH"
+    paths=$()
+    for dir in "${cdpath_dirs[@]}"; do
+        directories=$(ls $dir)
+        curpaths=("$directories")
+        paths+=("$curpaths")
+    done
+    echo ${paths[@]}
+}
