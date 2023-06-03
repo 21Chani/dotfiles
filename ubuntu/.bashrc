@@ -24,6 +24,8 @@ export PATH="$PATH:$SCRIPTS"
 export PATH=$PATH:/home/chani/.spicetify:$JAVA_HOME/bin:/usr/local/go/bin
 . "$HOME/.cargo/env"
 
+BASH_COMPLETION_DIRS=":$DOTFILES/scripts/completions/"
+
 # ------------------------------- CD PATH -------------------------------
 
 export CDPATH=".:$USERREPOS:$GHREPOS:$REPOS:/media/$USER:$HOME"
@@ -54,9 +56,11 @@ export PS1=\
 "\[${BG_CYAN}\] \[${FG_WHITE}\]🕚\t \[${FMT_RESET}${FG_CYAN}\]"\
 "\n \[${FG_GREEN}\]╰ \[${FG_CYAN}\]\$ \[${FMT_RESET}\]"
 
-# -------------------------- OS DEFAULT CONFIG --------------------------
+# -------------------------- IMPORT CONFIG --------------------------
 
 source $DOTFILES/ubuntu/default_config.sh
 source $DOTFILES/ubuntu/.bash_functions
 source $DOTFILES/ubuntu/.bash_aliases
+source $DOTFILES/scripts/completions/tgrid.sh
+
 
