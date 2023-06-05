@@ -42,7 +42,7 @@ if [[ $window_arg_pos != -1 ]]; then
 fi
 
 if [[ ${#window_names[@]} != 0 ]]; then
-    tmux new-session -s $1 -n $window_names[0]} -c $(find_dir ${window_paths[0]}) -d 
+    tmux new-session -s $1 -n ${window_names[0]} -c $(find_dir ${window_paths[0]}) -d 
 else
     tmux new-session -s $1 -c $(find_dir ${window_paths[0]}) -d 
 fi
