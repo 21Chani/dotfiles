@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd ../../config/ubuntu 
-	&& cp .bashrc ~/ 
-	&& cp alacritty.yml ~/.config/alacritty/
-	&& cp tmux/.tmux.conf ~/
-	&& cp tmux/.tmux ~/
