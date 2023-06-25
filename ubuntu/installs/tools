@@ -1,20 +1,17 @@
 #/bin/bash!
 
 # INSTALL CURL ------------------------------
-if ! command -v curl &> /dev/null
-then
+if ! command -v curl &>/dev/null; then
     echo installing curl.
     sudo apt install curl -y
-else    
-    echo "curl already installed, skipping."
+else
+    echo " - curl already installed, skipping."
 fi
 
 # INSTALL RUSTUP --------------------------------------------------
-if ! command -v rustup &> /dev/null
-then 
+if ! command -v rustup &>/dev/null; then
     echo "installing rustup. \n"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-else 
-    echo "rustup already installed, skipping. \n"
+else
+    echo " - rustup already installed, skipping."
 fi
-
