@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source $DOTFILES/scripts/utils/get_index.sh
-source $DOTFILES/scripts/utils/find_dir.sh
+source $DOTFILES/ubuntu/scripts/utils/get_index.sh
+source $DOTFILES/ubuntu/scripts/utils/find_dir.sh
 
 if [ -z "$1" ]; then
     echo "A name for grid should be provided"
@@ -26,7 +26,7 @@ if [[ $((window_arg_pos + 1)) == $length ]]; then
     exit
 fi
 
-if [[ $window_arg_pos != -1 ]]; then    
+if [[ $window_arg_pos != -1 ]]; then
     for index in ${!windows[@]}; do
         prev=${windows[$index - 1]}
         payload=${windows[$index]}
@@ -42,12 +42,12 @@ if [[ $window_arg_pos != -1 ]]; then
 fi
 
 if [[ ${#window_names[@]} != 0 ]]; then
-    tmux new-session -s $1 -n ${window_names[0]} -c $(find_dir ${window_paths[0]}) -d 
+    tmux new-session -s $1 -n ${window_names[0]} -c $(find_dir ${window_paths[0]}) -d
 else
-    tmux new-session -s $1 -c $(find_dir ${window_paths[0]}) -d 
+    tmux new-session -s $1 -c $(find_dir ${window_paths[0]}) -d
 fi
 
-make_panels(){
+make_panels() {
     dir=$(find_dir $1)
     tmux split-window -h -c $dir
 

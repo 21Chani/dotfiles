@@ -61,6 +61,6 @@ export PS1=\
 source $DOTFILES/ubuntu/default_config.sh
 source $DOTFILES/ubuntu/.bash_functions
 source $DOTFILES/ubuntu/.bash_aliases
-source $DOTFILES/scripts/completions/tgrid.sh
+# source $DOTFILES/scripts/completions/tgrid.sh
 
 

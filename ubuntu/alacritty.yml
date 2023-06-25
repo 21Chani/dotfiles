@@ -32,9 +32,8 @@ window:
     instance: Alacritty
     # General application class
     general: Alacritty
-  
-  startup_mode: Maximized
 
+  startup_mode: Maximized
 
 ##################################
 ############## FONTS #############
@@ -71,10 +70,8 @@ font:
     x: 2
     y: 2
 
-
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-
 
 ##################################
 ############# COLORS #############
@@ -132,7 +129,6 @@ colors:
 # Allow terminal applications to change Alacritty's window title.
 dynamic_title: true
 
-
 ##################################
 ############# CURSOR #############
 ##################################
@@ -140,36 +136,34 @@ dynamic_title: true
 cursor:
   style: Beam
 
-
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 5000
-
 
 ##################################
 ########## KEY BINDINGS ##########
 ##################################
 
 key_bindings:
-  - { key: V,         mods: Control,	   action: Paste                       }
-  - { key: C,         mods: Control,	   action: Copy                        }
-  - { key: Paste,     mods: None,          action: Paste                       }
-  - { key: Copy,      mods: None,          action: Copy                        }
-  - { key: Insert,    mods: Shift,         action: PasteSelection              }
-  - { key: Key0,      mods: Control,       action: ResetFontSize               }
-  
-  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
-  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
-  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: V, mods: Control, action: Paste }
+  - { key: C, mods: Control, action: Copy }
+  - { key: Paste, mods: None, action: Paste }
+  - { key: Copy, mods: None, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
 
-  - { key: F11,       mods: None,          action: ToggleFullscreen            }
-  - { key: L,         mods: Control,       action: ClearLogNotice              }
-  - { key: L,         mods: Control,       chars: "\x0c"                       }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
-  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
-  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
-  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
-  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
-  - { key: Down,      mods: Shift,         action: ScrollLineDown, mode: ~Alt  }
-  - { key: Up,        mods: Shift,         action: ScrollLineUp  , mode: ~Alt  }
+  - { key: F11, mods: None, action: ToggleFullscreen }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\x0c" }
+
+  - { key: PageUp, mods: None, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - { key: Down, mods: Shift, action: ScrollLineDown, mode: ~Alt }
+  - { key: Up, mods: Shift, action: ScrollLineUp, mode: ~Alt }

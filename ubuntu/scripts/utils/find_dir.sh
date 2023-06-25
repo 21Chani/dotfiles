@@ -1,9 +1,9 @@
 #!/bin/bash
 
-find_dir()  {
+find_dir() {
     cdpath_dirs=()
     target_dir="$1"
-    IFS=':' read -ra cdpath_dirs <<< "$CDPATH"
+    IFS=':' read -ra cdpath_dirs <<<"$CDPATH"
 
     for dir in "${cdpath_dirs[@]}"; do
         if [[ -d "$dir/$target_dir" ]]; then
@@ -16,7 +16,7 @@ find_dir()  {
 
 cd_path_ls() {
     cdpath_dirs=()
-    IFS=':' read -ra cdpath_dirs <<< "$CDPATH"
+    IFS=':' read -ra cdpath_dirs <<<"$CDPATH"
     paths=$()
     for dir in "${cdpath_dirs[@]}"; do
         directories=$(ls $dir)

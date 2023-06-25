@@ -1,5 +1,5 @@
 #!/bin/bash
-source $DOTFILES/scripts/utils/find_dir.sh
+source $DOTFILES/ubuntu/scripts/utils/find_dir.sh
 
 _tgrid_completion() {
     local cur opts

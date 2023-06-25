@@ -1,17 +1,17 @@
 #!/bin/bash
 
 move_to_dir() {
-	tmux send-keys "cd $USERREPOS/task-manager/$1" Enter	
+	tmux send-keys "cd $USERREPOS/task-manager/$1" Enter
 	tmux send-keys "clear" Enter
 }
 
-stop_terminal(){
+stop_terminal() {
 	tmux select-window -t $1
 	tmux select-pane -t $2
 	tmux send-keys "^C" Enter
 }
 
-start_server(){
+start_server() {
 	tmux select-window -t $1
 	tmux select-pane -t $2
 	tmux send-keys "$3" Enter
@@ -23,42 +23,42 @@ if [ $1 = "kill" ]; then
 		stop_terminal data 1
 		stop_terminal frontend 0
 		tmux kill-session -t task-manager
-	fi	
+	fi
 	exit
 fi
 
 if tmux has-session -t task-manager 2>/dev/null; then
 	tmux attach-session -t task-manager
-else 
-	## Create tmux instance and attach frontend panes 
+else
+	## Create tmux instance and attach frontend panes
 	tmux new-session -s task-manager -n frontend -d
-	move_to_dir frontend	
+	move_to_dir frontend
 
 	tmux split-window -h -p 75
-	
+
 	tmux select-pane -t 1
 	tmux split-window -v
-	
+
 	tmux select-pane -t 1
 	move_to_dir frontend/app
-	
+
 	tmux select-pane -t 2
 	move_to_dir frontend
-	
-	## Create Backend window 		
+
+	## Create Backend window
 	tmux new-window -n backend
 	move_to_dir backend
-	
+
 	tmux split-window -h
 	move_to_dir backend
-	
-	## Create Data Window 
+
+	## Create Data Window
 	tmux new-window -n data
-	tmux send-keys "cd && sudo -u postgres psql" Enter 	
-		
+	tmux send-keys "cd && sudo -u postgres psql" Enter
+
 	tmux split-window -v
 	tmux select-pane -t 0
-	
+
 	if [ $1 == "run" ]; then
 		start_server data 1 "redis-server"
 		start_server frontend 0 "yarn dev"
@@ -67,4 +67,3 @@ else
 
 	tmux -u attach-session -d
 fi
-
