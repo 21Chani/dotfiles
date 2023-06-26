@@ -1,8 +1,15 @@
 #/bin/bash!
 # gsettings set org.gnome.shell favorite-apps "$fav_apps_str"
 add_favorite_app() {
-    str=$(dconf read /org/gnome/shell/favorite-apps | sed "s/]/, '$1']/")
-    gsettings set org.gnome.shell favorite-apps "$str"
+    str=$(dconf read /org/gnome/shell/favorite-apps | sed "s/^\[\(.*\)\]$/\1/" | tr -d ',')
+    fav_apps=($str)
+    fav_apps+=("'$1'")
+    stt="[$(
+        IFS=",  "
+        echo "${fav_apps[*]}"
+    )]"
+
+    gsettings set org.gnome.shell favorite-apps "$stt"
 }
 
 remove_favorite_app() {
@@ -19,6 +26,6 @@ remove_favorite_app() {
         IFS=",  "
         echo "${updated_apps[*]}"
     )]"
+
     gsettings set org.gnome.shell favorite-apps "$stt"
-    echo $stt
 }

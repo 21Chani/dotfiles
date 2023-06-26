@@ -3,12 +3,12 @@
 full_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../..")"
 echo $full_root_dir
 
-if [ ! -d "$HOME/repos/github.com/21Chani/dotfiles" ]; then
-    mkdir -p "$HOME/repos/github.com/21Chani/dotfiles"
+if [ ! -d "$HOME/repos/github.com/21Chani" ]; then
+    mkdir -p "$HOME/repos/github.com/21Chani"
 fi
 
 if [[ $script_dir != "$HOME/repos/github.com/21Chani/dotfiles" ]]; then
-    mv $full_root_dir "$HOME/repos/github.com/21Chani/dotfiles/"
+    mv $full_root_dir "$HOME/repos/github.com/21Chani/"
 fi
 
 export DOTFILES="$HOME/repos/github.com/21Chani/dotfiles"
