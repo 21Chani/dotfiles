@@ -18,3 +18,4 @@ if [ ! -d "$HOME/.themes" ]; then
 fi
 
 gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark-v40"
+gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
