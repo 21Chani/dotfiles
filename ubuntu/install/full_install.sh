@@ -15,3 +15,4 @@ source $APPS/alacritty
 source $THEME/candy_icons.sh
 source $THEME/sweet_dark.sh
 source $THEME/wallpaper.sh
+source $THEME/dock.sh
