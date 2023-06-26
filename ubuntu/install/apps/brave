@@ -11,7 +11,7 @@ if ! command -v brave &>/dev/null; then
     sudo apt install brave-browser
 
     echo "adding brave to favorite apps"
-    add_favorite_app "brave_brave.desktop"
+    add_favorite_app "brave-browser.desktop"
 else
     echo "brave already installed, skipping."
 fi
