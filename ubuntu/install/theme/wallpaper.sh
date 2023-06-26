@@ -1,4 +1,4 @@
-if ! -d "$HOME/Documents/wallpapers" &>/dev/null; then
+if [ ! -d "$HOME/Documents/wallpapers" ]; then
     mkdir "$HOME/Documents/wallpapers"
 fi
 
