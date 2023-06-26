@@ -7,9 +7,9 @@ export APPS="$UBUNTU/install/apps"
 export THEME="$UBUNTU/install/theme"
 
 # APP & TOOLS --------------
-source $UBUNTU/install/tools
-source $APPS/brave
-source $APPS/alacritty
+source $UBUNTU/install/tools.sh
+source $APPS/brave.sh
+source $APPS/alacritty.sh
 
 # THEME --------------------
 source $THEME/candy_icons.sh
