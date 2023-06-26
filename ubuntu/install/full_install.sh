@@ -1,7 +1,17 @@
 #/bin/bash!
 
-script_dir=$(dirname "$0")
-export DOTFILES="$script_dir/../.."
+full_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../..")"
+echo $full_root_dir
+
+if [ ! -d "$HOME/repos/github.com/21Chani/dotfiles" ]; then
+    mkdir -p "$HOME/repos/github.com/21Chani/dotfiles"
+fi
+
+if [[ $script_dir != "$HOME/repos/github.com/21Chani/dotfiles" ]]; then
+    mv $full_root_dir "$HOME/repos/github.com/21Chani/dotfiles/"
+fi
+
+export DOTFILES="$HOME/repos/github.com/21Chani/dotfiles"
 export UBUNTU="$DOTFILES/ubuntu"
 export APPS="$UBUNTU/install/apps"
 export THEME="$UBUNTU/install/theme"
