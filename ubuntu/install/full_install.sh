@@ -2,7 +2,7 @@
 
 script_dir=$(dirname "$0")
 export DOTFILES="$script_dir/../.."
-export UBUNTU="$DOTFILES/ubuntu/"
+export UBUNTU="$DOTFILES/ubuntu"
 export APPS="$UBUNTU/install/apps"
 export THEME="$UBUNTU/install/theme"
 
