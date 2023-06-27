@@ -1,5 +1,4 @@
 #/bin/bash!
-# gsettings set org.gnome.shell favorite-apps "$fav_apps_str"
 add_favorite_app() {
     str=$(dconf read /org/gnome/shell/favorite-apps | sed "s/^\[\(.*\)\]$/\1/" | tr -d ',')
     fav_apps=($str)
