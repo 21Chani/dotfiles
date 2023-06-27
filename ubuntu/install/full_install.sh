@@ -30,4 +30,4 @@ source $THEME/sweet_dark.sh
 source $THEME/wallpaper.sh
 source $THEME/dock.sh
 source $THEME/fonts.sh
-source $THEME/spotify_nighlight.sh
+source $THEME/spotify_ziro.sh
