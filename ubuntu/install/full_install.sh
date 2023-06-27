@@ -22,6 +22,7 @@ source $APPS/brave.sh
 source $APPS/alacritty.sh
 source $APPS/spotify.sh
 source $APPS/spicetify.sh
+source $APPS/vscode.sh
 
 # THEME --------------------
 source $THEME/candy_icons.sh
