@@ -20,6 +20,8 @@ export THEME="$UBUNTU/install/theme"
 source $UBUNTU/install/tools.sh
 source $APPS/brave.sh
 source $APPS/alacritty.sh
+source $APPS/spotify.sh
+source $APPS/spicetify.sh
 
 # THEME --------------------
 source $THEME/candy_icons.sh
@@ -27,3 +29,4 @@ source $THEME/sweet_dark.sh
 source $THEME/wallpaper.sh
 source $THEME/dock.sh
 source $THEME/fonts.sh
+source $THEME/spotify_nighlight.sh
