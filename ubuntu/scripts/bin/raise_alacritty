@@ -1,0 +1,9 @@
+#/bin/bash
+
+status=$(pgrep alacritty)
+
+if [ -z "$status" ]; then
+    alacritty
+else
+    wmctrl -xa "Alacritty.Alacritty"
+fi
