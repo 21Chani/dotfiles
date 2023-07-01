@@ -2,13 +2,13 @@
 
 # ------------------------ ENVIRONMENT VARIABLES ------------------------
 
-# --- USER UTILITIES 
+# --- USER UTILITIES
 export GITUSER="21Chani"
 export REPOS="$HOME/repos"
 export GHREPOS="$REPOS/github.com"
 export USERREPOS="$GHREPOS/$GITUSER"
 export DOTFILES="$USERREPOS/dotfiles"
-export SCRIPTS="$DOTFILES/scripts/bin"
+export SCRIPTS="$DOTFILES/ubuntu/scripts/bin"
 
 # --- JAVA
 export JAVA_HOME="$HOME/.jdks/temurin-17.0.6"
@@ -49,18 +49,14 @@ BG_CYAN="\e[46m"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
 
-export PS1=\
-"\n\[${BG_GREEN}\] \[${FG_RED}\] \[${FG_BLACK}\]◆ \u \[${FG_GREEN}${BG_BLUE}\] "\
-"\[${FG_BLACK}\]\W \[${FMT_RESET}${FG_BLUE}\]"\
-'$(__git_ps1 "\[${BG_MAGENTA}\] \[${FG_WHITE}\] %s \[${FMT_RESET}${FG_MAGENTA}\]")'\
-"\[${BG_CYAN}\] \[${FG_WHITE}\]🕚\t \[${FMT_RESET}${FG_CYAN}\]"\
-"\n \[${FG_GREEN}\]╰ \[${FG_CYAN}\]\$ \[${FMT_RESET}\]"
+export PS1="\n\[${BG_GREEN}\] \[${FG_RED}\] \[${FG_BLACK}\]◆ \u \[${FG_GREEN}${BG_BLUE}\] ""\
+\[${FG_BLACK}\]\W \[${FMT_RESET}${FG_BLUE}\]"'$(__git_ps1 "\[${BG_MAGENTA}\] \[${FG_WHITE}\] %s \[${FMT_RESET}${FG_MAGENTA}\]")'"\
+\[${BG_CYAN}\] \[${FG_WHITE}\]🕚\t \[${FMT_RESET}${FG_CYAN}\]""\
+\n \[${FG_GREEN}\]╰ \[${FG_CYAN}\]\$ \[${FMT_RESET}\]"
 
 # -------------------------- IMPORT CONFIG --------------------------
 
 source $DOTFILES/ubuntu/default_config.sh
 source $DOTFILES/ubuntu/.bash_functions
 source $DOTFILES/ubuntu/.bash_aliases
-# source $DOTFILES/scripts/completions/tgrid.sh
-
-
+source $DOTFILES/ubuntu/scripts/completions/tgrid.sh
