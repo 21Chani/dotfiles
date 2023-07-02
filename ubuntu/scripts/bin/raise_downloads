@@ -1,0 +1,17 @@
+/bin/bash!
+output=$(/usr/bin/wmctrl -xl | /usr/bin/grep "org.gnome.Nautilus.Org.gnome.Nautilus")
+
+if [ -z "$output" ]; then
+    nautilus /home/chani/Downloads/
+else
+    echo "Nautilus is already running" >>/tmp/debug.txt
+
+    echo -n "~/Downloads/" | /usr/bin/xclip -i -sel clip
+    /usr/bin/wmctrl -xa "org.gnome.Nautilus.Org.gnome.Nautilus"
+    sleep 0.1
+    /usr/bin/xdotool key ctrl+t ctrl+l ctrl+v Return
+
+    echo -n "$odclip" | xclip -selection clipboard
+fi
+
+# nautilus $HOME/Downloads
