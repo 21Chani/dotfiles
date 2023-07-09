@@ -1,5 +1,9 @@
 cd $DOTFILES/theme/ubuntu
 
+if [ -d "$HOME/.local/share/fonts" ]; then
+    mkdir -p $HOME/.local/share/fonts
+fi
+
 # JETBRAINS MONO --------------------
 unzip JetBrainsMono.zip -d JetBrainsMono
 
