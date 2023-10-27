@@ -3,7 +3,6 @@
 
 $TWEAKS = "C:\Tweaks"
 $POSH_THEMES = "$TWEAKS\PoshThemes\"
-
 $PROJECTS = "~\Projects"
 
 $REPOS = "$PROJECTS/Repos"
@@ -28,3 +27,4 @@ $CDPATH = "${MSERVERS}:${GHREPOS}:${GHUSER}:${PROJECTS}:${TWEAKS}:${CURRENT_PATH
 
 Import-Module "$DOTFILES/windows/Touch.ps1"
 Import-Module "$DOTFILES/windows/Custom_Cd.ps1" 
+Import-Module "$DOTFILES/windows/GH_Functions.ps1"
