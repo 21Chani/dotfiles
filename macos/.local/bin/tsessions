@@ -1,0 +1,51 @@
+#/bin/sh
+
+
+############################################################
+# Constants
+############################################################
+readonly FJO_FRONTEND_SESSION="fjord-frontend" 
+
+
+############################################################
+# Variables
+############################################################
+session=$1
+
+case "$session" in 
+  "fjord-fe") 
+    # Get FJO Frontend Session if exists 
+    current_session="$(tmux list-sessions | grep $FJO_FRONTEND_SESSION)"
+
+    # Verify if has a session
+    if [ "$current_session" ]; then 
+      # Attach existing session
+       echo "[INFO]: Attatching to existing session"
+       tmux a -t "$FJO_FRONTEND_SESSION"
+
+    else
+      
+      echo "[INFO]: $FJO_FRONTEND_SESSION doesn't exist, creating."
+      # Create new session
+      tmux new -d -s "$FJO_FRONTEND_SESSION" -n "Code/Repository"
+      tmux wait-for -S "$FJO_FRONTEND_SESSION-ready"
+      
+      # sleep 0.5
+      # First Window: Neovim and editor
+      tmux send-keys -t "$FJO_FRONTEND_SESSION":0 "cd fjord-frontend" C-m
+
+      # Second Window: Server
+      tmux send-keys  -t "$FJO_FRONTEND_SESSION":0 "tmux new-window -n 'Server'" C-m   
+      tmux send-keys  -t "$FJO_FRONTEND_SESSION":0 "clear" C-m      
+
+      sleep 0.8
+      tmux send-keys  -t "$FJO_FRONTEND_SESSION":1 "tmux split-window" C-m      
+      tmux send-keys  -t "$FJO_FRONTEND_SESSION":1 "clear" C-m      
+
+      echo "[INFO]: Attaching to created session."
+      tmux a -t "$FJO_FRONTEND_SESSION:0"
+    fi
+    ;;
+esac
+
+
